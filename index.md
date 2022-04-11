@@ -1,6 +1,6 @@
 # Project Reports
 
-Team E4
+Team E4 test
 
 * [Tests](./reports/tests/test/)
 * [JavaDoc](./reports/javadoc/javadoc/)
