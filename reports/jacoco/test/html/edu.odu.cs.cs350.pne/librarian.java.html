@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>librarian.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs350-pne-Arnaud-ODU</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">librarian.java</span></div><h1>librarian.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
 
+import edu.odu.cs.cs350.pne.lexicalFeatures;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.FileReader;
@@ -19,10 +20,10 @@ public class librarian
      * instance of a librarian.
      */
     public librarian ()
-<span class="fc" id="L22">    {</span>
-<span class="fc" id="L23">        processingBlock = &quot; &quot;;</span>
-<span class="fc" id="L24">        processedBlocks = new ArrayList&lt;String&gt;();</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L23">    {</span>
+<span class="fc" id="L24">        processingBlock = &quot; &quot;;</span>
+<span class="fc" id="L25">        processedBlocks = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L26">    }</span>
 
     /**
      * This function reads one or multiple blocks of text.
@@ -30,13 +31,13 @@ public class librarian
      */
     public void readBlocksOfText(String block)
     {
-<span class="fc" id="L33">        processingBlock = block;</span>
-<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (IsInputTextValid(processingBlock) == true)</span>
+<span class="fc" id="L34">        processingBlock = block;</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (IsInputTextValid(processingBlock) == true)</span>
         {
-<span class="fc" id="L36">            AddEachBlockOfText(processingBlock);</span>
+<span class="fc" id="L37">            AddEachBlockOfText(processingBlock);</span>
         }
 
-<span class="fc" id="L39">    }</span>
+<span class="fc" id="L40">    }</span>
 
      /**
     * This function checks if the file is over 4000 characters
@@ -91,15 +92,15 @@ public class librarian
     public void fileToString(Scanner inFile) 
     {
 
-<span class="nc" id="L94">        String inBlocks=&quot;&quot;; </span>
+<span class="nc" id="L95">        String inBlocks=&quot;&quot;; </span>
 
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        while (inFile.hasNext())</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        while (inFile.hasNext())</span>
         {
-<span class="nc" id="L98">           inBlocks = inFile.nextLine() + '\n';</span>
+<span class="nc" id="L99">           inBlocks = inFile.nextLine() + '\n';</span>
         }
 
-<span class="nc" id="L101">        readBlocksOfText(inBlocks); </span>
-<span class="nc" id="L102">    }</span>
+<span class="nc" id="L102">        readBlocksOfText(inBlocks); </span>
+<span class="nc" id="L103">    }</span>
 
 
     /**
@@ -109,14 +110,14 @@ public class librarian
      */
     public boolean IsInputTextValid(String processingBlock)
     {
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (processingBlock.length() &gt; 4)</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">        if (processingBlock.length() &gt; 4)</span>
         {
-<span class="fc" id="L114">            return true; </span>
+<span class="fc" id="L115">            return true; </span>
         }
 
         else 
         {
-<span class="nc" id="L119">            return false; </span>
+<span class="nc" id="L120">            return false; </span>
         }
     }
 
@@ -127,39 +128,39 @@ public class librarian
      */
     public void AddEachBlockOfText (String blocks)
     {
-<span class="fc" id="L130">        String aTempBlock = &quot;&quot;;</span>
-<span class="fc" id="L131">        int charIndex = 0;</span>
+<span class="fc" id="L131">        String aTempBlock = &quot;&quot;;</span>
+<span class="fc" id="L132">        int charIndex = 0;</span>
 
-<span class="fc bfc" id="L133" title="All 2 branches covered.">        while (charIndex &lt; blocks.length())</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">        while (charIndex &lt; blocks.length())</span>
         {
-<span class="pc bpc" id="L135" title="1 of 2 branches missed.">            if (isOpenNERTag(blocks.charAt(charIndex), blocks.charAt(charIndex+1), blocks.charAt(charIndex+2), blocks.charAt(charIndex+3), blocks.charAt(charIndex+4)))</span>
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">            if (isOpenNERTag(blocks.charAt(charIndex), blocks.charAt(charIndex+1), blocks.charAt(charIndex+2), blocks.charAt(charIndex+3), blocks.charAt(charIndex+4)))</span>
             { 
-<span class="pc bpc" id="L137" title="1 of 2 branches missed.">                for (int i=charIndex ; i &lt; blocks.length(); i++)</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">                for (int i=charIndex ; i &lt; blocks.length(); i++)</span>
                 {
                     
-<span class="fc bfc" id="L140" title="All 2 branches covered.">                    if (isCloseNERTag(blocks.charAt(i), blocks.charAt(i+1), blocks.charAt(i+2), blocks.charAt(i+3), blocks.charAt(i+4), blocks.charAt(i+5)))</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">                    if (isCloseNERTag(blocks.charAt(i), blocks.charAt(i+1), blocks.charAt(i+2), blocks.charAt(i+3), blocks.charAt(i+4), blocks.charAt(i+5)))</span>
                     {
-<span class="fc" id="L142">                        aTempBlock = aTempBlock + blocks.charAt(i) + blocks.charAt(i+1)+ blocks.charAt(i+2)+ blocks.charAt(i+3)+ blocks.charAt(i+4)+ blocks.charAt(i+5);</span>
-<span class="fc bfc" id="L143" title="All 4 branches covered.">                        if ((i+6 &lt; blocks.length()) &amp;&amp; (blocks.charAt(i+6) == '\n'))</span>
+<span class="fc" id="L143">                        aTempBlock = aTempBlock + blocks.charAt(i) + blocks.charAt(i+1)+ blocks.charAt(i+2)+ blocks.charAt(i+3)+ blocks.charAt(i+4)+ blocks.charAt(i+5);</span>
+<span class="fc bfc" id="L144" title="All 4 branches covered.">                        if ((i+6 &lt; blocks.length()) &amp;&amp; (blocks.charAt(i+6) == '\n'))</span>
                         {
-<span class="fc" id="L145">                            aTempBlock = aTempBlock +'\n';</span>
-<span class="fc" id="L146">                            charIndex = i+7;</span>
+<span class="fc" id="L146">                            aTempBlock = aTempBlock +'\n';</span>
+<span class="fc" id="L147">                            charIndex = i+7;</span>
                         }
                         else
                         {
-<span class="fc" id="L150">                            charIndex = i+6;</span>
+<span class="fc" id="L151">                            charIndex = i+6;</span>
                         }
-<span class="fc" id="L152">                        processedBlocks.add(aTempBlock);</span>
-<span class="fc" id="L153">                        aTempBlock = &quot;&quot;;</span>
-<span class="fc" id="L154">                        break;</span>
+<span class="fc" id="L153">                        processedBlocks.add(aTempBlock);</span>
+<span class="fc" id="L154">                        aTempBlock = &quot;&quot;;</span>
+<span class="fc" id="L155">                        break;</span>
                     }
 
-<span class="fc" id="L157">                aTempBlock = aTempBlock + blocks.charAt(i);</span>
+<span class="fc" id="L158">                aTempBlock = aTempBlock + blocks.charAt(i);</span>
                 }
             }
 
         }
-<span class="fc" id="L162">    }</span>
+<span class="fc" id="L163">    }</span>
 
     /**
      * This function determines if an input includes the open NER Tag.
@@ -173,13 +174,13 @@ public class librarian
      */
     private boolean isOpenNERTag(char lessThan, char N, char E, char R, char endTag)
     {
-<span class="pc bpc" id="L176" title="5 of 10 branches missed.">        if (lessThan == '&lt;' &amp;&amp; N == 'N' &amp;&amp; E == 'E' &amp;&amp; R == 'R' &amp;&amp; endTag == '&gt;')</span>
+<span class="pc bpc" id="L177" title="5 of 10 branches missed.">        if (lessThan == '&lt;' &amp;&amp; N == 'N' &amp;&amp; E == 'E' &amp;&amp; R == 'R' &amp;&amp; endTag == '&gt;')</span>
         {
-<span class="fc" id="L178">            return true;</span>
+<span class="fc" id="L179">            return true;</span>
         }
         else
         {
-<span class="nc" id="L182">            return false;</span>
+<span class="nc" id="L183">            return false;</span>
         }
     }
 
@@ -196,13 +197,13 @@ public class librarian
      */
     private boolean isCloseNERTag(char lessThan, char slash, char N, char E, char R, char endTag)
     {
-<span class="pc bpc" id="L199" title="4 of 12 branches missed.">        if (lessThan == '&lt;' &amp;&amp; slash == '/' &amp;&amp; N == 'N' &amp;&amp; E == 'E' &amp;&amp; R == 'R' &amp;&amp; endTag == '&gt;')</span>
+<span class="pc bpc" id="L200" title="4 of 12 branches missed.">        if (lessThan == '&lt;' &amp;&amp; slash == '/' &amp;&amp; N == 'N' &amp;&amp; E == 'E' &amp;&amp; R == 'R' &amp;&amp; endTag == '&gt;')</span>
         {
-<span class="fc" id="L201">            return true;</span>
+<span class="fc" id="L202">            return true;</span>
         }
         else
         {
-<span class="fc" id="L205">            return false;</span>
+<span class="fc" id="L206">            return false;</span>
         }
     }
 
@@ -214,7 +215,7 @@ public class librarian
      */
     public String getBlockAT(int index)
     {
-<span class="fc" id="L217">        return processedBlocks.get(index);</span>
+<span class="fc" id="L218">        return processedBlocks.get(index);</span>
     }
 
     /**
@@ -222,12 +223,12 @@ public class librarian
      */
     public String toString()
     {
-<span class="fc" id="L225">        StringBuffer buf = new StringBuffer();</span>
-<span class="fc bfc" id="L226" title="All 2 branches covered.">        for (String block: processedBlocks) </span>
+<span class="fc" id="L226">        StringBuffer buf = new StringBuffer();</span>
+<span class="fc bfc" id="L227" title="All 2 branches covered.">        for (String block: processedBlocks) </span>
         {
-<span class="fc" id="L228">            buf.append(block.toString());</span>
-<span class="fc" id="L229">        }</span>
-<span class="fc" id="L230">        return buf.toString();</span>
+<span class="fc" id="L229">            buf.append(block.toString());</span>
+<span class="fc" id="L230">        }</span>
+<span class="fc" id="L231">        return buf.toString();</span>
     }
 
     /**
@@ -236,7 +237,7 @@ public class librarian
      */
     public Iterator&lt;String&gt; iterator() 
     {
-<span class="nc" id="L239">        return processedBlocks.iterator();     </span>
+<span class="nc" id="L240">        return processedBlocks.iterator();     </span>
     }
 
     /**
@@ -247,74 +248,81 @@ public class librarian
     public String addPERTag(String ablock) 
     {
         
-<span class="fc" id="L250">        String[] blockWords = ablock.split(&quot; &quot;);</span>
-<span class="fc" id="L251">        List&lt;String&gt; words = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L252">        words = Arrays.asList(blockWords);</span>
+<span class="fc" id="L251">        String[] blockWords = ablock.split(&quot; &quot;);</span>
+<span class="fc" id="L252">        List&lt;String&gt; words = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L253">        words = Arrays.asList(blockWords);</span>
 
         // Generating tokens
-<span class="fc" id="L255">        ArrayList&lt;String&gt; tokens = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L256">        ArrayList&lt;String&gt; tokens = new ArrayList&lt;&gt;();</span>
         
-<span class="fc bfc" id="L257" title="All 2 branches covered.">        for (String w: words)</span>
+<span class="fc bfc" id="L258" title="All 2 branches covered.">        for (String w: words)</span>
         {
-<span class="fc" id="L259">            tokens.add(generateToken(w));</span>
-<span class="fc" id="L260">        }</span>
+<span class="fc" id="L260">            tokens.add(generateToken(w));</span>
+<span class="fc" id="L261">        }</span>
 
-<span class="fc" id="L262">        int index = 0;</span>
-<span class="fc" id="L263">        String newBlock = &quot;&quot;;</span>
+<span class="fc" id="L263">        int index = 0;</span>
+<span class="fc" id="L264">        String newBlock = &quot;&quot;;</span>
 
-<span class="fc bfc" id="L265" title="All 2 branches covered.">        for (String t: tokens)</span>
+<span class="fc bfc" id="L266" title="All 2 branches covered.">        for (String t: tokens)</span>
         {
             
-<span class="fc bfc" id="L268" title="All 2 branches covered.">            if (isNameToken(t) == true)</span>
+<span class="fc bfc" id="L269" title="All 2 branches covered.">            if (isNameToken(t) == true)</span>
             {
-<span class="fc" id="L270">                newBlock = newBlock + &quot; &quot; + &quot;&lt;PER&gt;&quot; + words.get(index) + &quot;&lt;/PER&gt;&quot;;</span>
-<span class="fc" id="L271">                index++;</span>
+<span class="fc" id="L271">                newBlock = newBlock + &quot; &quot; + &quot;&lt;PER&gt;&quot; + words.get(index) + &quot;&lt;/PER&gt;&quot;;</span>
+<span class="fc" id="L272">                index++;</span>
             }
 
             else
             {
-<span class="fc bfc" id="L276" title="All 2 branches covered.">                if (index == 0)</span>
+<span class="fc bfc" id="L277" title="All 2 branches covered.">                if (index == 0)</span>
                 {
-<span class="fc" id="L278">                    newBlock = words.get(index);</span>
+<span class="fc" id="L279">                    newBlock = words.get(index);</span>
                 }
                 else 
                 {
-<span class="fc" id="L282">                    newBlock = newBlock + &quot; &quot; + words.get(index);</span>
+<span class="fc" id="L283">                    newBlock = newBlock + &quot; &quot; + words.get(index);</span>
                 }
                 
-<span class="fc" id="L285">                index ++;</span>
+<span class="fc" id="L286">                index ++;</span>
             }
             
-<span class="fc" id="L288">        }</span>
-<span class="fc" id="L289">        return newBlock;</span>
+<span class="fc" id="L289">        }</span>
+<span class="fc" id="L290">        return newBlock;</span>
     }
 
     public String generateToken (String aWord)
     {
-<span class="fc" id="L294">        String token = &quot;&quot;;</span>
+<span class="fc" id="L295">        lexicalFeatures lf = new lexicalFeatures();</span>
 
+<span class="fc" id="L297">        String token = &quot;&quot;;</span>
+
+<span class="pc bpc" id="L299" title="1 of 2 branches missed.">        if (lf.LocateEnglishHonorifics(aWord) == '1')</span>
+        {
+<span class="nc" id="L301">            token = &quot;capitalized, other, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0&quot;;</span>
+        }
+        
         //call isHonorifics which returns 1 or 0 
         //call isPoS returns type of PoS
 
 
-<span class="fc bfc" id="L300" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
+<span class="fc bfc" id="L308" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
         {
-<span class="fc" id="L302">            token = &quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;;</span>
+<span class="fc" id="L310">            token = &quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;;</span>
         }
 
-<span class="fc" id="L305">        return token;</span>
+<span class="fc" id="L313">        return token;</span>
     }
 
     public boolean isNameToken (String aToken)
     {
-<span class="fc bfc" id="L310" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;))</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;))</span>
         {
-<span class="fc" id="L312">            return true;</span>
+<span class="fc" id="L320">            return true;</span>
         }
 
         else
         {
-<span class="fc" id="L317">            return false;</span>
+<span class="fc" id="L325">            return false;</span>
         }
     }
     
