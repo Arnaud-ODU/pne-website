@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>lexicalFeatures.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs350-pne-Arnaud-ODU</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">lexicalFeatures.java</span></div><h1>lexicalFeatures.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
 
-<span class="fc" id="L3">public class lexicalFeatures {</span>
+<span class="fc" id="L8">public class lexicalFeatures {</span>
 
     /** This program checks if the word is an 
      * honorific
@@ -9,20 +14,115 @@
      */
     public char LocateEnglishHonorifics(String aWord)
     {
-<span class="pc bpc" id="L12" title="9 of 11 branches missed.">        switch(aWord){</span>
-<span class="nc" id="L13">            case &quot;Dr.&quot;: return '1';</span>
-<span class="fc" id="L14">            case &quot;Mr.&quot;: return '1';</span>
-<span class="nc" id="L15">            case &quot;Ms.&quot;: return '1';</span>
-<span class="nc" id="L16">            case &quot;Mrs.&quot;: return '1';</span>
-<span class="nc" id="L17">            case &quot;Mx.&quot;: return '1';</span>
-<span class="nc" id="L18">            case &quot;Madam&quot;: return '1';</span>
-<span class="nc" id="L19">            case &quot;Sir&quot;: return '1';</span>
-<span class="nc" id="L20">            case &quot;Esq.&quot;: return '1';</span>
-<span class="nc" id="L21">            case &quot;Lord&quot;: return '1';</span>
-<span class="nc" id="L22">            case &quot;Professor&quot;: return '1';</span>
-<span class="fc" id="L23">            default: return '0';</span>
+
+        
+		/*try {
+            File F = new File(&quot;./src/main/java/edu/odu/cs/cs350/pne/Honorifics.txt&quot;);
+			Scanner readFile = new Scanner(F);
+			String line = readFile.nextLine();
+			while (line != &quot;&quot;) {
+				
+                if (aWord == line)
+                {
+                    readFile.close();
+                    return '1';
+                }
+				line = readFile.nextLine();
+			}
+			readFile.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        return '0';*/
+        
+
+
+<span class="pc bpc" id="L40" title="42 of 44 branches missed.">        switch(aWord){</span>
+<span class="nc" id="L41">            case &quot;Mr&quot;: return '1';</span>
+<span class="nc" id="L42">            case &quot;Dr&quot;: return '1';</span>
+<span class="nc" id="L43">            case &quot;Mrs&quot;: return '1';</span>
+<span class="nc" id="L44">            case &quot;Miss&quot;: return '1';</span>
+<span class="nc" id="L45">            case &quot;Ms.&quot;: return '1';</span>
+<span class="fc" id="L46">            case &quot;Mr.&quot;: return '1';</span>
+<span class="nc" id="L47">            case &quot;Dr.&quot;: return '1';</span>
+<span class="nc" id="L48">            case &quot;Mrs.&quot;: return '1';</span>
+<span class="nc" id="L49">            case &quot;General&quot;: return '1';</span>
+<span class="nc" id="L50">            case &quot;Fleet&quot;: return '1';</span>
+<span class="nc" id="L51">            case &quot;Admiral&quot;: return '1';</span>
+<span class="nc" id="L52">            case &quot;Staff&quot;: return '1';</span>
+<span class="nc" id="L53">            case &quot;Lieutenant&quot;: return '1';</span>
+<span class="nc" id="L54">            case &quot;Major&quot;: return '1';</span>
+<span class="nc" id="L55">            case &quot;Rear&quot;: return '1';</span>
+<span class="nc" id="L56">            case &quot;Brigadier&quot;: return '1';</span>
+<span class="nc" id="L57">            case &quot;Commodore&quot;: return '1';</span>
+<span class="nc" id="L58">            case &quot;Colonel&quot;: return '1';</span>
+<span class="nc" id="L59">            case &quot;Captain&quot;: return '1';</span>
+<span class="nc" id="L60">            case &quot;Commander&quot;: return '1';</span>
+<span class="nc" id="L61">            case &quot;Ensign&quot;: return '1';</span>
+<span class="nc" id="L62">            case &quot;Sergeant&quot;: return '1';</span>
+<span class="nc" id="L63">            case &quot;Master&quot;: return '1';</span>
+<span class="nc" id="L64">            case &quot;Chief&quot;: return '1';</span>
+<span class="nc" id="L65">            case &quot;Corporal&quot;: return '1';</span>
+<span class="nc" id="L66">            case &quot;Specialist&quot;: return '1';</span>
+<span class="nc" id="L67">            case &quot;Airman&quot;: return '1';</span>
+<span class="nc" id="L68">            case &quot;Private&quot;: return '1';</span>
+<span class="nc" id="L69">            case &quot;Seaman&quot;: return '1';</span>
+<span class="nc" id="L70">            case &quot;Apprentice&quot;: return '1';</span>
+<span class="nc" id="L71">            case &quot;Recruit&quot;: return '1';</span>
+<span class="nc" id="L72">            case &quot;Doctor&quot;: return '1';</span>
+<span class="nc" id="L73">            case &quot;Professor&quot;: return '1';</span>
+<span class="nc" id="L74">            case &quot;Prof&quot;: return '1';</span>
+<span class="nc" id="L75">            case &quot;Prof.&quot;: return '1';</span>
+<span class="nc" id="L76">            case &quot;President&quot;: return '1';</span>
+<span class="nc" id="L77">            case &quot;Senator&quot;: return '1';</span>
+<span class="nc" id="L78">            case &quot;Congressman&quot;: return '1';</span>
+<span class="nc" id="L79">            case &quot;Congresswoman&quot;: return '1';</span>
+<span class="nc" id="L80">            case &quot;Premier&quot;: return '1';</span>
+<span class="nc" id="L81">            case &quot;Justice&quot;: return '1';</span>
+<span class="nc" id="L82">            case &quot;Sir&quot;: return '1';</span>
+<span class="nc" id="L83">            case &quot;Ambassador&quot;: return '1';</span>
+<span class="fc" id="L84">            default: return '0';</span>
         }
     }
     
+
+
+    public char LocateNamePrefixes(String aWord)
+    {
+<span class="pc bpc" id="L92" title="29 of 31 branches missed.">        switch(aWord){</span>
+<span class="nc" id="L93">            case &quot;babu&quot;: return '1';</span>
+<span class="fc" id="L94">            case &quot;el&quot;: return '1';</span>
+<span class="nc" id="L95">            case &quot;da&quot;: return '1';</span>
+<span class="nc" id="L96">            case &quot;sueli&quot;: return '1';</span>
+<span class="nc" id="L97">            case &quot;lopes&quot;: return '1';</span>
+<span class="nc" id="L98">            case &quot;costa&quot;: return '1';</span>
+<span class="nc" id="L99">            case &quot;silva&quot;: return '1';</span>
+<span class="nc" id="L100">            case &quot;das&quot;: return '1';</span>
+<span class="nc" id="L101">            case &quot;la&quot;: return '1';</span>
+<span class="nc" id="L102">            case &quot;las&quot;: return '1';</span>
+<span class="nc" id="L103">            case &quot;di&quot;: return '1';</span>
+<span class="nc" id="L104">            case &quot;van&quot;: return '1';</span>
+<span class="nc" id="L105">            case &quot;den&quot;: return '1';</span>
+<span class="nc" id="L106">            case &quot;berg&quot;: return '1';</span>
+<span class="nc" id="L107">            case &quot;der&quot;: return '1';</span>
+<span class="nc" id="L108">            case &quot;von&quot;: return '1';</span>
+<span class="nc" id="L109">            case &quot;du&quot;: return '1';</span>
+<span class="nc" id="L110">            case &quot;el-&quot;: return '1';</span>
+<span class="nc" id="L111">            case &quot;fitz-&quot;: return '1';</span>
+<span class="nc" id="L112">            case &quot;hadzi&quot;: return '1';</span>
+<span class="nc" id="L113">            case &quot;le&quot;: return '1';</span>
+<span class="nc" id="L114">            case &quot;lo&quot;: return '1';</span>
+<span class="nc" id="L115">            case &quot;popa&quot;: return '1';</span>
+<span class="nc" id="L116">            case &quot;pope&quot;: return '1';</span>
+<span class="nc" id="L117">            case &quot;ten&quot;: return '1';</span>
+<span class="nc" id="L118">            case &quot;zur&quot;: return '1';</span>
+<span class="nc" id="L119">            case &quot;ter&quot;: return '1';</span>
+<span class="nc" id="L120">            case &quot;ver&quot;: return '1';</span>
+<span class="nc" id="L121">            case &quot;zum&quot;: return '1';</span>
+<span class="nc" id="L122">            case &quot;de&quot;: return '1';</span>
+<span class="fc" id="L123">            default: return '0';</span>
+        }
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
