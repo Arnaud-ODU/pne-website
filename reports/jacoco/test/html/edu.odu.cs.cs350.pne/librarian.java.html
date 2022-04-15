@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>librarian.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs350-pne-Arnaud-ODU</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">librarian.java</span></div><h1>librarian.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
 
-import edu.odu.cs.cs350.pne.lexicalFeatures;
+import edu.odu.cs.cs350.pne.Gazetteers;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.io.FileReader;
@@ -292,42 +292,50 @@ public class librarian
 
     public String generateToken (String aWord)
     {
-<span class="fc" id="L295">        lexicalFeatures lf = new lexicalFeatures();</span>
+<span class="fc" id="L295">        Gazetteers gaz = new Gazetteers();</span>
 
 <span class="fc" id="L297">        String token = &quot;&quot;;</span>
+       // String TokenArray[]; 
+       //I think we should use linked lists instead -Al
+        
 
-<span class="pc bpc" id="L299" title="1 of 2 branches missed.">        if (lf.LocateEnglishHonorifics(aWord) == '1')</span>
+<span class="pc bpc" id="L302" title="1 of 2 branches missed.">        if (gaz.LocateEnglishHonorifics(aWord) == '1')</span>
         {
-<span class="nc" id="L301">            token = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0&quot;;</span>
+<span class="nc" id="L304">            token = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0&quot;;</span>
         }
 
-<span class="pc bpc" id="L304" title="1 of 2 branches missed.">        if (lf.LocateNamePrefixes(aWord) == '1')</span>
+<span class="pc bpc" id="L307" title="1 of 2 branches missed.">        if (gaz.LocateNamePrefixes(aWord) == '1')</span>
         {
-<span class="nc" id="L306">            token = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0&quot;;</span>
+<span class="nc" id="L309">            token = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0&quot;;</span>
+        }
+
+<span class="pc bpc" id="L312" title="1 of 2 branches missed.">        if (gaz.LocateNameSuffixes(aWord) == '1')</span>
+        {
+<span class="nc" id="L314">            token = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0&quot;;</span>
         }
         
         //call isHonorifics which returns 1 or 0 
         //call isPoS returns type of PoS
 
 
-<span class="fc bfc" id="L313" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
+<span class="fc bfc" id="L321" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
         {
-<span class="fc" id="L315">            token = &quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;;</span>
+<span class="fc" id="L323">            token = &quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;;</span>
         }
 
-<span class="fc" id="L318">        return token;</span>
+<span class="fc" id="L326">        return token;</span>
     }
 
     public boolean isNameToken (String aToken)
     {
-<span class="fc bfc" id="L323" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;))</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized, other, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0&quot;))</span>
         {
-<span class="fc" id="L325">            return true;</span>
+<span class="fc" id="L333">            return true;</span>
         }
 
         else
         {
-<span class="fc" id="L330">            return false;</span>
+<span class="fc" id="L338">            return false;</span>
         }
     }
     
