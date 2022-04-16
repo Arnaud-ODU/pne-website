@@ -1,141 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Gazetteers.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs350-pne-Arnaud-ODU</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">Gazetteers.java</span></div><h1>Gazetteers.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileNotFoundException;
 
-<span class="fc" id="L8">public class Gazetteers {</span>
+
+<span class="fc" id="L4">public class Gazetteers {</span>
 
     /** This program checks if the word is an 
      * honorific
      * @param aWord
      * @return
+     * @throws IOException
      */
-    public char LocateEnglishHonorifics(String aWord)
+    public char LocateEnglishHonorifics(String aWord) 
     {
 
         
-		/*try {
-            File F = new File(&quot;./src/main/java/edu/odu/cs/cs350/pne/Honorifics.txt&quot;);
-			Scanner readFile = new Scanner(F);
-			String line = readFile.nextLine();
-			while (line != &quot;&quot;) {
-				
-                if (aWord == line)
-                {
-                    readFile.close();
-                    return '1';
-                }
-				line = readFile.nextLine();
-			}
-			readFile.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+	/*	//Scanner keyboardInput = new Scanner(System.in);
+        Path path = Paths.get(&quot;src/main/java/edu/odu/cs/cs350/pne/Honorifics.txt&quot;);
+        // keyboardInput.next();
+
+        //File file = new File(fileName); // converts the string inputted into a file object
+        //Scanner scan = new Scanner(file); //once a valid file path is given the file is read through a displayed to the console
+        //String Honorific = scan.nextLine();
+        //List&lt;String&gt; content = Files.readAllLines(Paths.get(String.valueOf(content)));
+
+        try (Stream &lt;String&gt; stream = Files.lines(path, StandardCharsets.UTF_8)) {
+            stream.forEach(System.out::println);
+        } catch (IOException ex) {
+            // Handle exception
+        }
+        int i = 0;
+       while (stream.get(i) != &quot; &quot;) {
+            if (aWord == content.get(i))
+            {
+                return '1';
+            }
+            i++;
+        }
         return '0';*/
+    
         
 
 
-<span class="pc bpc" id="L40" title="42 of 44 branches missed.">        switch(aWord){</span>
-<span class="nc" id="L41">            case &quot;Mr&quot;: return '1';</span>
-<span class="nc" id="L42">            case &quot;Dr&quot;: return '1';</span>
-<span class="nc" id="L43">            case &quot;Mrs&quot;: return '1';</span>
-<span class="nc" id="L44">            case &quot;Miss&quot;: return '1';</span>
-<span class="nc" id="L45">            case &quot;Ms.&quot;: return '1';</span>
-<span class="fc" id="L46">            case &quot;Mr.&quot;: return '1';</span>
-<span class="nc" id="L47">            case &quot;Dr.&quot;: return '1';</span>
-<span class="nc" id="L48">            case &quot;Mrs.&quot;: return '1';</span>
-<span class="nc" id="L49">            case &quot;General&quot;: return '1';</span>
-<span class="nc" id="L50">            case &quot;Fleet&quot;: return '1';</span>
-<span class="nc" id="L51">            case &quot;Admiral&quot;: return '1';</span>
-<span class="nc" id="L52">            case &quot;Staff&quot;: return '1';</span>
-<span class="nc" id="L53">            case &quot;Lieutenant&quot;: return '1';</span>
-<span class="nc" id="L54">            case &quot;Major&quot;: return '1';</span>
-<span class="nc" id="L55">            case &quot;Rear&quot;: return '1';</span>
-<span class="nc" id="L56">            case &quot;Brigadier&quot;: return '1';</span>
-<span class="nc" id="L57">            case &quot;Commodore&quot;: return '1';</span>
-<span class="nc" id="L58">            case &quot;Colonel&quot;: return '1';</span>
-<span class="nc" id="L59">            case &quot;Captain&quot;: return '1';</span>
-<span class="nc" id="L60">            case &quot;Commander&quot;: return '1';</span>
-<span class="nc" id="L61">            case &quot;Ensign&quot;: return '1';</span>
-<span class="nc" id="L62">            case &quot;Sergeant&quot;: return '1';</span>
-<span class="nc" id="L63">            case &quot;Master&quot;: return '1';</span>
-<span class="nc" id="L64">            case &quot;Chief&quot;: return '1';</span>
-<span class="nc" id="L65">            case &quot;Corporal&quot;: return '1';</span>
-<span class="nc" id="L66">            case &quot;Specialist&quot;: return '1';</span>
-<span class="nc" id="L67">            case &quot;Airman&quot;: return '1';</span>
-<span class="nc" id="L68">            case &quot;Private&quot;: return '1';</span>
-<span class="nc" id="L69">            case &quot;Seaman&quot;: return '1';</span>
-<span class="nc" id="L70">            case &quot;Apprentice&quot;: return '1';</span>
-<span class="nc" id="L71">            case &quot;Recruit&quot;: return '1';</span>
-<span class="nc" id="L72">            case &quot;Doctor&quot;: return '1';</span>
-<span class="nc" id="L73">            case &quot;Professor&quot;: return '1';</span>
-<span class="nc" id="L74">            case &quot;Prof&quot;: return '1';</span>
-<span class="nc" id="L75">            case &quot;Prof.&quot;: return '1';</span>
-<span class="nc" id="L76">            case &quot;President&quot;: return '1';</span>
-<span class="nc" id="L77">            case &quot;Senator&quot;: return '1';</span>
-<span class="nc" id="L78">            case &quot;Congressman&quot;: return '1';</span>
-<span class="nc" id="L79">            case &quot;Congresswoman&quot;: return '1';</span>
-<span class="nc" id="L80">            case &quot;Premier&quot;: return '1';</span>
-<span class="nc" id="L81">            case &quot;Justice&quot;: return '1';</span>
-<span class="nc" id="L82">            case &quot;Sir&quot;: return '1';</span>
-<span class="nc" id="L83">            case &quot;Ambassador&quot;: return '1';</span>
-<span class="fc" id="L84">            default: return '0';</span>
-        }
+<span class="pc bpc" id="L43" title="42 of 44 branches missed.">        switch(aWord){</span>
+<span class="nc" id="L44">            case &quot;Mr&quot;: return '1';</span>
+<span class="nc" id="L45">            case &quot;Dr&quot;: return '1';</span>
+<span class="nc" id="L46">            case &quot;Mrs&quot;: return '1';</span>
+<span class="nc" id="L47">            case &quot;Miss&quot;: return '1';</span>
+<span class="nc" id="L48">            case &quot;Ms.&quot;: return '1';</span>
+<span class="fc" id="L49">            case &quot;Mr.&quot;: return '1';</span>
+<span class="nc" id="L50">            case &quot;Dr.&quot;: return '1';</span>
+<span class="nc" id="L51">            case &quot;Mrs.&quot;: return '1';</span>
+<span class="nc" id="L52">            case &quot;General&quot;: return '1';</span>
+<span class="nc" id="L53">            case &quot;Fleet&quot;: return '1';</span>
+<span class="nc" id="L54">            case &quot;Admiral&quot;: return '1';</span>
+<span class="nc" id="L55">            case &quot;Staff&quot;: return '1';</span>
+<span class="nc" id="L56">            case &quot;Lieutenant&quot;: return '1';</span>
+<span class="nc" id="L57">            case &quot;Major&quot;: return '1';</span>
+<span class="nc" id="L58">            case &quot;Rear&quot;: return '1';</span>
+<span class="nc" id="L59">            case &quot;Brigadier&quot;: return '1';</span>
+<span class="nc" id="L60">            case &quot;Commodore&quot;: return '1';</span>
+<span class="nc" id="L61">            case &quot;Colonel&quot;: return '1';</span>
+<span class="nc" id="L62">            case &quot;Captain&quot;: return '1';</span>
+<span class="nc" id="L63">            case &quot;Commander&quot;: return '1';</span>
+<span class="nc" id="L64">            case &quot;Ensign&quot;: return '1';</span>
+<span class="nc" id="L65">            case &quot;Sergeant&quot;: return '1';</span>
+<span class="nc" id="L66">            case &quot;Master&quot;: return '1';</span>
+<span class="nc" id="L67">            case &quot;Chief&quot;: return '1';</span>
+<span class="nc" id="L68">            case &quot;Corporal&quot;: return '1';</span>
+<span class="nc" id="L69">            case &quot;Specialist&quot;: return '1';</span>
+<span class="nc" id="L70">            case &quot;Airman&quot;: return '1';</span>
+<span class="nc" id="L71">            case &quot;Private&quot;: return '1';</span>
+<span class="nc" id="L72">            case &quot;Seaman&quot;: return '1';</span>
+<span class="nc" id="L73">            case &quot;Apprentice&quot;: return '1';</span>
+<span class="nc" id="L74">            case &quot;Recruit&quot;: return '1';</span>
+<span class="nc" id="L75">            case &quot;Doctor&quot;: return '1';</span>
+<span class="nc" id="L76">            case &quot;Professor&quot;: return '1';</span>
+<span class="nc" id="L77">            case &quot;Prof&quot;: return '1';</span>
+<span class="nc" id="L78">            case &quot;Prof.&quot;: return '1';</span>
+<span class="nc" id="L79">            case &quot;President&quot;: return '1';</span>
+<span class="nc" id="L80">            case &quot;Senator&quot;: return '1';</span>
+<span class="nc" id="L81">            case &quot;Congressman&quot;: return '1';</span>
+<span class="nc" id="L82">            case &quot;Congresswoman&quot;: return '1';</span>
+<span class="nc" id="L83">            case &quot;Premier&quot;: return '1';</span>
+<span class="nc" id="L84">            case &quot;Justice&quot;: return '1';</span>
+<span class="nc" id="L85">            case &quot;Sir&quot;: return '1';</span>
+<span class="nc" id="L86">            case &quot;Ambassador&quot;: return '1';</span>
+<span class="fc" id="L87">            default: return '0';</span>
+}
     }
     
 
 
     public char LocateNamePrefixes(String aWord)
     {
-<span class="pc bpc" id="L92" title="28 of 31 branches missed.">        switch(aWord){</span>
-<span class="nc" id="L93">            case &quot;babu&quot;: return '1';</span>
-<span class="fc" id="L94">            case &quot;el&quot;: return '1';</span>
-<span class="nc" id="L95">            case &quot;da&quot;: return '1';</span>
-<span class="nc" id="L96">            case &quot;sueli&quot;: return '1';</span>
-<span class="nc" id="L97">            case &quot;lopes&quot;: return '1';</span>
-<span class="nc" id="L98">            case &quot;costa&quot;: return '1';</span>
-<span class="fc" id="L99">            case &quot;silva&quot;: return '1';</span>
-<span class="nc" id="L100">            case &quot;das&quot;: return '1';</span>
-<span class="nc" id="L101">            case &quot;la&quot;: return '1';</span>
-<span class="nc" id="L102">            case &quot;las&quot;: return '1';</span>
-<span class="nc" id="L103">            case &quot;di&quot;: return '1';</span>
-<span class="nc" id="L104">            case &quot;van&quot;: return '1';</span>
-<span class="nc" id="L105">            case &quot;den&quot;: return '1';</span>
-<span class="nc" id="L106">            case &quot;berg&quot;: return '1';</span>
-<span class="nc" id="L107">            case &quot;der&quot;: return '1';</span>
-<span class="nc" id="L108">            case &quot;von&quot;: return '1';</span>
-<span class="nc" id="L109">            case &quot;du&quot;: return '1';</span>
-<span class="nc" id="L110">            case &quot;el-&quot;: return '1';</span>
-<span class="nc" id="L111">            case &quot;fitz-&quot;: return '1';</span>
-<span class="nc" id="L112">            case &quot;hadzi&quot;: return '1';</span>
-<span class="nc" id="L113">            case &quot;le&quot;: return '1';</span>
-<span class="nc" id="L114">            case &quot;lo&quot;: return '1';</span>
-<span class="nc" id="L115">            case &quot;popa&quot;: return '1';</span>
-<span class="nc" id="L116">            case &quot;pope&quot;: return '1';</span>
-<span class="nc" id="L117">            case &quot;ten&quot;: return '1';</span>
-<span class="nc" id="L118">            case &quot;zur&quot;: return '1';</span>
-<span class="nc" id="L119">            case &quot;ter&quot;: return '1';</span>
-<span class="nc" id="L120">            case &quot;ver&quot;: return '1';</span>
-<span class="nc" id="L121">            case &quot;zum&quot;: return '1';</span>
-<span class="nc" id="L122">            case &quot;de&quot;: return '1';</span>
-<span class="fc" id="L123">            default: return '0';</span>
+<span class="pc bpc" id="L95" title="29 of 31 branches missed.">        switch(aWord){</span>
+<span class="nc" id="L96">            case &quot;babu&quot;: return '1';</span>
+<span class="fc" id="L97">            case &quot;el&quot;: return '1';</span>
+<span class="nc" id="L98">            case &quot;da&quot;: return '1';</span>
+<span class="nc" id="L99">            case &quot;sueli&quot;: return '1';</span>
+<span class="nc" id="L100">            case &quot;lopes&quot;: return '1';</span>
+<span class="nc" id="L101">            case &quot;costa&quot;: return '1';</span>
+<span class="nc" id="L102">            case &quot;silva&quot;: return '1';</span>
+<span class="nc" id="L103">            case &quot;das&quot;: return '1';</span>
+<span class="nc" id="L104">            case &quot;la&quot;: return '1';</span>
+<span class="nc" id="L105">            case &quot;las&quot;: return '1';</span>
+<span class="nc" id="L106">            case &quot;di&quot;: return '1';</span>
+<span class="nc" id="L107">            case &quot;van&quot;: return '1';</span>
+<span class="nc" id="L108">            case &quot;den&quot;: return '1';</span>
+<span class="nc" id="L109">            case &quot;berg&quot;: return '1';</span>
+<span class="nc" id="L110">            case &quot;der&quot;: return '1';</span>
+<span class="nc" id="L111">            case &quot;von&quot;: return '1';</span>
+<span class="nc" id="L112">            case &quot;du&quot;: return '1';</span>
+<span class="nc" id="L113">            case &quot;el-&quot;: return '1';</span>
+<span class="nc" id="L114">            case &quot;fitz-&quot;: return '1';</span>
+<span class="nc" id="L115">            case &quot;hadzi&quot;: return '1';</span>
+<span class="nc" id="L116">            case &quot;le&quot;: return '1';</span>
+<span class="nc" id="L117">            case &quot;lo&quot;: return '1';</span>
+<span class="nc" id="L118">            case &quot;popa&quot;: return '1';</span>
+<span class="nc" id="L119">            case &quot;pope&quot;: return '1';</span>
+<span class="nc" id="L120">            case &quot;ten&quot;: return '1';</span>
+<span class="nc" id="L121">            case &quot;zur&quot;: return '1';</span>
+<span class="nc" id="L122">            case &quot;ter&quot;: return '1';</span>
+<span class="nc" id="L123">            case &quot;ver&quot;: return '1';</span>
+<span class="nc" id="L124">            case &quot;zum&quot;: return '1';</span>
+<span class="nc" id="L125">            case &quot;de&quot;: return '1';</span>
+<span class="fc" id="L126">            default: return '0';</span>
         }
     }
 
     public char LocateNameSuffixes(String aWord)
     {
-<span class="pc bpc" id="L129" title="7 of 9 branches missed.">        switch(aWord){</span>
-<span class="fc" id="L130">            case &quot;Jr&quot;: return '1';</span>
-<span class="nc" id="L131">            case &quot;Sr&quot;: return '1';</span>
-<span class="nc" id="L132">            case &quot;Jr.&quot;: return '1';</span>
-<span class="nc" id="L133">            case &quot;Sr.&quot;: return '1';</span>
-<span class="nc" id="L134">            case &quot;II&quot;: return '1';</span>
-<span class="nc" id="L135">            case &quot;III&quot;: return '1';</span>
-<span class="nc" id="L136">            case &quot;IV&quot;: return '1';</span>
-<span class="nc" id="L137">            case &quot;VI&quot;: return '1';</span>
-<span class="fc" id="L138">            default: return '0';</span>
+<span class="pc bpc" id="L132" title="7 of 9 branches missed.">        switch(aWord){</span>
+<span class="fc" id="L133">            case &quot;Jr&quot;: return '1';</span>
+<span class="nc" id="L134">            case &quot;Sr&quot;: return '1';</span>
+<span class="nc" id="L135">            case &quot;Jr.&quot;: return '1';</span>
+<span class="nc" id="L136">            case &quot;Sr.&quot;: return '1';</span>
+<span class="nc" id="L137">            case &quot;II&quot;: return '1';</span>
+<span class="nc" id="L138">            case &quot;III&quot;: return '1';</span>
+<span class="nc" id="L139">            case &quot;IV&quot;: return '1';</span>
+<span class="nc" id="L140">            case &quot;VI&quot;: return '1';</span>
+<span class="fc" id="L141">            default: return '0';</span>
         }
     }
 

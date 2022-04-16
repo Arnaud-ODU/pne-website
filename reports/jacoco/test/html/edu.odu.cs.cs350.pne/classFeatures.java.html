@@ -6,33 +6,34 @@
     /**
      * This class Feature searches for words of speech that
      * are at the beginning of a name, after a name
-     * or in between the first and last name
+     * or in between the first and last name and returns 1
+     * else it returns 0;
      * @param sPeech
      * @return
      *
      */
 
 
-    public String speechFeatures(String sPeech) {
+    public int speechFeatures(String sPeech) {
 
-<span class="fc" id="L18">        String token = &quot; &quot;;</span>
 
 <span class="pc bpc" id="L20" title="3 of 6 branches missed.">        if (sPeech.equals(&quot;a&quot;) || sPeech.equals(&quot;an&quot;) || sPeech.equals(&quot;the&quot;)) {</span>
-<span class="nc" id="L21">            token = &quot;other, 1, 0, 0, 0, 0 ,0 ,0, 0, 0, 1, 0 &quot;;</span>
 
+<span class="nc" id="L22">            return 1;</span>
         }
 
-<span class="fc bfc" id="L25" title="All 2 branches covered.">        if(sPeech.equals(&quot;and&quot;)){</span>
-<span class="fc" id="L26">            token = &quot;other, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0&quot;;</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (sPeech.equals(&quot;and&quot;)){</span>
 
-        }
-<span class="pc bpc" id="L29" title="2 of 6 branches missed.">        if(sPeech.equals(&quot;,&quot;) || sPeech.equals(&quot;.&quot;) || sPeech.equals(&quot;-&quot;)){</span>
-
-<span class="fc" id="L31">            token = &quot;punct, period, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 &quot;;</span>
-
+<span class="fc" id="L27">            return 1;</span>
         }
 
-<span class="fc" id="L35">        return token;</span>
+<span class="pc bpc" id="L30" title="2 of 6 branches missed.">        if(sPeech.equals(&quot;,&quot;) || sPeech.equals(&quot;.&quot;) || sPeech.equals(&quot;-&quot;)){</span>
+
+<span class="fc" id="L32">             return 1;</span>
+        }
+        else
+
+<span class="fc" id="L36">        return 0;</span>
     }
 
 }
