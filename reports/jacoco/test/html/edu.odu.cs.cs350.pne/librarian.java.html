@@ -292,75 +292,62 @@ public class librarian
 
     public String generateToken (String aWord)
     {
+<span class="fc" id="L295">        classFeatures cF = new classFeatures();</span>
+<span class="fc" id="L296">        cF.speechFeatures(aWord);</span>
 
-<span class="fc" id="L296">        classFeatures cF = new classFeatures();</span>
-<span class="fc" id="L297">        cF.speechFeatures(aWord);</span>
+<span class="fc" id="L298">        Gazetteers gaz = new Gazetteers();</span>
 
+<span class="fc" id="L300">        String [] token = new String [14];</span>
 
-<span class="fc" id="L300">        Gazetteers gaz = new Gazetteers();</span>
-
-<span class="fc" id="L302">        String [] token = new String [14];</span>
-       // String TokenArray[]; 
-       //I think we should use linked lists instead -Al
-        
-<span class="fc" id="L306">       String aToken = &quot;&quot;;</span>
-
-<span class="pc bpc" id="L308" title="1 of 2 branches missed.">        if (gaz.LocateEnglishHonorifics(aWord) == '1')</span>
+<span class="fc bfc" id="L302" title="All 2 branches covered.">        for (int i = 0; i &lt; 14; i++)</span>
         {
-<span class="nc" id="L310">            aToken = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0&quot;;</span>
-        }
-
-<span class="pc bpc" id="L313" title="1 of 2 branches missed.">        if (gaz.LocateNamePrefixes(aWord) == '1')</span>
-        {
-<span class="nc" id="L315">            aToken = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0&quot;;</span>
-        }
-
-<span class="pc bpc" id="L318" title="1 of 2 branches missed.">        if (gaz.LocateNameSuffixes(aWord) == '1')</span>
-        {
-<span class="nc" id="L320">            aToken = &quot;other, other, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0&quot;;</span>
+<span class="fc" id="L304">            token [i] = &quot;0&quot;;</span>
         }
         
-        //call isHonorifics which returns 1 or 0 
-        //call isPoS returns type of PoS
+<span class="fc" id="L307">        String aToken = &quot;&quot;;</span>
 
+<span class="fc" id="L309">        token [10] = Character.toString(gaz.LocateEnglishHonorifics(aWord));</span>
+   
+<span class="fc" id="L311">        token [11] = Character.toString(gaz.LocateNamePrefixes(aWord));</span>
 
-<span class="fc bfc" id="L327" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
+<span class="fc" id="L313">        token[12] = Character.toString (gaz.LocateNameSuffixes(aWord));</span>
+
+<span class="fc bfc" id="L315" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
         {
-<span class="fc" id="L329">            token [0] = &quot;capitalized&quot;;</span>
-<span class="fc" id="L330">            token [1] = &quot;other&quot;;</span>
-<span class="fc" id="L331">            token [2] = &quot;1&quot;;</span>
-<span class="fc" id="L332">            token [3] = &quot;0&quot;;</span>
-<span class="fc" id="L333">            token [4] = &quot;0&quot;;</span>
-<span class="fc" id="L334">            token [5] = &quot;0&quot;;</span>
-<span class="fc" id="L335">            token [6] = &quot;1&quot;;</span>
-<span class="fc" id="L336">            token [7] = &quot;0&quot;;</span>
-<span class="fc" id="L337">            token [8] = &quot;1&quot;;</span>
-<span class="fc" id="L338">            token [9] = &quot;0&quot;;</span>
-<span class="fc" id="L339">            token [10] = &quot;0&quot;;</span>
-<span class="fc" id="L340">            token [11] = &quot;0&quot;;</span>
-<span class="fc" id="L341">            token [12] = &quot;0&quot;;</span>
-<span class="fc" id="L342">            token [13] = &quot;0&quot;;</span>
+<span class="fc" id="L317">            token [0] = &quot;capitalized&quot;;</span>
+<span class="fc" id="L318">            token [1] = &quot;other&quot;;</span>
+<span class="fc" id="L319">            token [2] = &quot;1&quot;;</span>
+<span class="fc" id="L320">            token [3] = &quot;0&quot;;</span>
+<span class="fc" id="L321">            token [4] = &quot;0&quot;;</span>
+<span class="fc" id="L322">            token [5] = &quot;0&quot;;</span>
+<span class="fc" id="L323">            token [6] = &quot;1&quot;;</span>
+<span class="fc" id="L324">            token [7] = &quot;0&quot;;</span>
+<span class="fc" id="L325">            token [8] = &quot;1&quot;;</span>
+<span class="fc" id="L326">            token [9] = &quot;0&quot;;</span>
+<span class="fc" id="L327">            token [10] = &quot;0&quot;;</span>
+<span class="fc" id="L328">            token [11] = &quot;0&quot;;</span>
+<span class="fc" id="L329">            token [12] = &quot;0&quot;;</span>
+<span class="fc" id="L330">            token [13] = &quot;0&quot;;</span>
         }
-
         
-<span class="fc bfc" id="L346" title="All 2 branches covered.">        for (int i = 0; i &lt; 14; i++)</span>
+<span class="fc bfc" id="L333" title="All 2 branches covered.">        for (int i = 0; i &lt; 14; i++)</span>
         {
-<span class="fc" id="L348">            aToken = aToken + token [i] + &quot; &quot;;</span>
+<span class="fc" id="L335">            aToken = aToken + token [i] + &quot; &quot;;</span>
         }
 
-<span class="fc" id="L351">        return aToken;</span>
+<span class="fc" id="L338">        return aToken;</span>
     }
 
     public boolean isNameToken (String aToken)
     {
-<span class="fc bfc" id="L356" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized other 1 0 0 0 1 0 1 0 0 0 0 0 &quot;))</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized other 1 0 0 0 1 0 1 0 0 0 0 0 &quot;))</span>
         {
-<span class="fc" id="L358">            return true;</span>
+<span class="fc" id="L345">            return true;</span>
         }
 
         else
         {
-<span class="fc" id="L363">            return false;</span>
+<span class="fc" id="L350">            return false;</span>
         }
     }
     
