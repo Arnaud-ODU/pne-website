@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>librarian.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cs350-pne-Arnaud-ODU</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">librarian.java</span></div><h1>librarian.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
-import edu.odu.cs.cs350.pne.classFeatures;
+import edu.odu.cs.cs350.pne.speechFeatures;
 import edu.odu.cs.cs350.pne.Gazetteers;
 
 import java.util.*;
@@ -305,63 +305,51 @@ public class librarian
 <span class="fc" id="L305">            token [i] = &quot;0&quot;;</span>
         }
         
-/*
-        classFeatures cF = new classFeatures();
-        cF.speechFeatures(aWord);
 
-        if (aWord.equals(&quot;a&quot;) || aWord.equals(&quot;an&quot;) || aWord.equals(&quot;the&quot;)) {
-            token = &quot;other, 1, 0, 0, 0, 0 ,0 ,0, 0, 0, 1, 0 &quot;;
+<span class="fc" id="L309">        speechFeatures sF = new speechFeatures();</span>
 
-        }
 
-        if (aWord.equals(&quot;and&quot;)){
-             token = &quot;other, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0&quot;;
 
-        }
 
-        if(aWord.equals(&quot;,&quot;) || aWord.equals(&quot;.&quot;) || aWord.equals(&quot;-&quot;)){
-
-             token = &quot;punct, period, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 &quot;;
-        }
-        */
-
-<span class="fc" id="L328">        Gazetteers gaz = new Gazetteers();</span>
+<span class="fc" id="L314">        Gazetteers gaz = new Gazetteers();</span>
 
         //String [] token = new String [14];
 
       
-<span class="fc" id="L333">        String aToken = &quot;&quot;;</span>
+<span class="fc" id="L319">        String aToken = &quot;&quot;;</span>
 
-<span class="fc" id="L335">        token [10] = Character.toString(gaz.LocateEnglishHonorifics(aWord));</span>
+<span class="fc" id="L321">        token[1] = String.valueOf(sF.partsOfSpeech(aWord));</span>
+
+<span class="fc" id="L323">        token [10] = Character.toString(gaz.LocateEnglishHonorifics(aWord));</span>
    
-<span class="fc" id="L337">        token [11] = Character.toString(gaz.LocateNamePrefixes(aWord));</span>
+<span class="fc" id="L325">        token [11] = Character.toString(gaz.LocateNamePrefixes(aWord));</span>
 
-<span class="fc" id="L339">        token[12] = Character.toString (gaz.LocateNameSuffixes(aWord));</span>
+<span class="fc" id="L327">        token[12] = Character.toString (gaz.LocateNameSuffixes(aWord));</span>
 
-<span class="fc bfc" id="L341" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
+<span class="fc bfc" id="L329" title="All 4 branches covered.">        if (aWord.equals(&quot;John&quot;) || aWord.equals(&quot;Davis&quot;))</span>
         {
-<span class="fc" id="L343">            token [0] = &quot;capitalized&quot;;</span>
-<span class="fc" id="L344">            token [1] = &quot;other&quot;;</span>
-<span class="fc" id="L345">            token [2] = &quot;1&quot;;</span>
-<span class="fc" id="L346">            token [3] = &quot;0&quot;;</span>
-<span class="fc" id="L347">            token [4] = &quot;0&quot;;</span>
-<span class="fc" id="L348">            token [5] = &quot;0&quot;;</span>
-<span class="fc" id="L349">            token [6] = &quot;1&quot;;</span>
-<span class="fc" id="L350">            token [7] = &quot;0&quot;;</span>
-<span class="fc" id="L351">            token [8] = &quot;1&quot;;</span>
-<span class="fc" id="L352">            token [9] = &quot;0&quot;;</span>
-<span class="fc" id="L353">            token [10] = &quot;0&quot;;</span>
-<span class="fc" id="L354">            token [11] = &quot;0&quot;;</span>
-<span class="fc" id="L355">            token [12] = &quot;0&quot;;</span>
-<span class="fc" id="L356">            token [13] = &quot;0&quot;;</span>
+<span class="fc" id="L331">            token [0] = &quot;capitalized&quot;;</span>
+<span class="fc" id="L332">            token [1] = &quot;other&quot;;</span>
+<span class="fc" id="L333">            token [2] = &quot;1&quot;;</span>
+<span class="fc" id="L334">            token [3] = &quot;0&quot;;</span>
+<span class="fc" id="L335">            token [4] = &quot;0&quot;;</span>
+<span class="fc" id="L336">            token [5] = &quot;0&quot;;</span>
+<span class="fc" id="L337">            token [6] = &quot;1&quot;;</span>
+<span class="fc" id="L338">            token [7] = &quot;0&quot;;</span>
+<span class="fc" id="L339">            token [8] = &quot;1&quot;;</span>
+<span class="fc" id="L340">            token [9] = &quot;0&quot;;</span>
+<span class="fc" id="L341">            token [10] = &quot;0&quot;;</span>
+<span class="fc" id="L342">            token [11] = &quot;0&quot;;</span>
+<span class="fc" id="L343">            token [12] = &quot;0&quot;;</span>
+<span class="fc" id="L344">            token [13] = &quot;0&quot;;</span>
         }
         
-<span class="fc bfc" id="L359" title="All 2 branches covered.">        for (int i = 0; i &lt; 14; i++)</span>
+<span class="fc bfc" id="L347" title="All 2 branches covered.">        for (int i = 0; i &lt; 14; i++)</span>
         {
-<span class="fc" id="L361">            aToken = aToken + token [i] + &quot; &quot;;</span>
+<span class="fc" id="L349">            aToken = aToken + token [i] + &quot; &quot;;</span>
         }
 
-<span class="fc" id="L364">        return aToken;</span>
+<span class="fc" id="L352">        return aToken;</span>
     }
 
     /**
@@ -371,14 +359,14 @@ public class librarian
      */
     public boolean isNameToken (String aToken)
     {
-<span class="fc bfc" id="L374" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized other 1 0 0 0 1 0 1 0 0 0 0 0 &quot;))</span>
+<span class="fc bfc" id="L362" title="All 2 branches covered.">        if (aToken.equals(&quot;capitalized other 1 0 0 0 1 0 1 0 0 0 0 0 &quot;))</span>
         {
-<span class="fc" id="L376">            return true;</span>
+<span class="fc" id="L364">            return true;</span>
         }
 
         else
         {
-<span class="fc" id="L381">            return false;</span>
+<span class="fc" id="L369">            return false;</span>
         }
     }
     
